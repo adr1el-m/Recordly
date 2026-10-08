@@ -2805,6 +2805,64 @@ export function SettingsPanel({
 								formatValue={(v) => `${Math.round(v * 100)}%`}
 								parseInput={(text) => parseFloat(text.replace(/%$/, "")) / 100}
 							/>
+							<div className="flex items-center justify-between rounded-lg bg-foreground/[0.03] px-2.5 py-1.5 mt-2">
+								<span className="text-[10px] text-muted-foreground">
+									{tSettings("effects.webcamTransform3D", "Transform 3D")}
+								</span>
+								<Switch
+									checked={webcam?.transform3DEnabled ?? false}
+									onCheckedChange={(enabled) => updateWebcam({ transform3DEnabled: enabled })}
+									className="data-[state=checked]:bg-[#2563EB] scale-75"
+								/>
+							</div>
+							{webcam?.transform3DEnabled ? (
+								<>
+									<SliderControl
+										label={tSettings("effects.webcamPerspective", "Perspective")}
+										value={webcam?.perspective ?? 1000}
+										defaultValue={1000}
+										min={100}
+										max={3000}
+										step={10}
+										onChange={(v) => updateWebcam({ perspective: v })}
+										formatValue={(v) => `${Math.round(v)}px`}
+										parseInput={(text) => parseFloat(text.replace(/px$/, ""))}
+									/>
+									<SliderControl
+										label={tSettings("effects.webcamRotateX", "Rotation X")}
+										value={webcam?.rotateX ?? 0}
+										defaultValue={0}
+										min={-180}
+										max={180}
+										step={1}
+										onChange={(v) => updateWebcam({ rotateX: v })}
+										formatValue={(v) => `${Math.round(v)}°`}
+										parseInput={(text) => parseFloat(text.replace(/°$/, ""))}
+									/>
+									<SliderControl
+										label={tSettings("effects.webcamRotateY", "Rotation Y")}
+										value={webcam?.rotateY ?? 0}
+										defaultValue={0}
+										min={-180}
+										max={180}
+										step={1}
+										onChange={(v) => updateWebcam({ rotateY: v })}
+										formatValue={(v) => `${Math.round(v)}°`}
+										parseInput={(text) => parseFloat(text.replace(/°$/, ""))}
+									/>
+									<SliderControl
+										label={tSettings("effects.webcamRotateZ", "Rotation Z")}
+										value={webcam?.rotateZ ?? 0}
+										defaultValue={0}
+										min={-180}
+										max={180}
+										step={1}
+										onChange={(v) => updateWebcam({ rotateZ: v })}
+										formatValue={(v) => `${Math.round(v)}°`}
+										parseInput={(text) => parseFloat(text.replace(/°$/, ""))}
+									/>
+								</>
+							) : null}
 							<div className="rounded-lg bg-foreground/[0.03] px-2.5 py-2">
 								<div className="flex items-center justify-between gap-2">
 									<div>

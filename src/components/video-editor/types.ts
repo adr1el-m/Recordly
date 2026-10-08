@@ -92,6 +92,11 @@ export interface WebcamOverlaySettings {
 	cornerRadius: number;
 	shadow: number;
 	margin: number;
+	transform3DEnabled: boolean;
+	perspective: number;
+	rotateX: number;
+	rotateY: number;
+	rotateZ: number;
 }
 
 export const DEFAULT_CURSOR_SIZE = 3.0;
@@ -133,6 +138,11 @@ export const DEFAULT_WEBCAM_OVERLAY: WebcamOverlaySettings = {
 	cornerRadius: DEFAULT_WEBCAM_CORNER_RADIUS,
 	shadow: DEFAULT_WEBCAM_SHADOW,
 	margin: DEFAULT_WEBCAM_MARGIN,
+	transform3DEnabled: false,
+	perspective: 1000,
+	rotateX: 0,
+	rotateY: 0,
+	rotateZ: 0,
 };
 
 export interface TrimRegion {

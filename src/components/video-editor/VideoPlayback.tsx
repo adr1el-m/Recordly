@@ -551,6 +551,13 @@ const VideoPlayback = forwardRef<VideoPlaybackRef, VideoPlaybackProps>(
 					height: scaledSize,
 					radius: webcam.cornerRadius ?? DEFAULT_WEBCAM_CORNER_RADIUS,
 				});
+				if (webcam.transform3DEnabled) {
+					bubble.style.transform = `perspective(${webcam.perspective ?? 1000}px) rotateX(${webcam.rotateX ?? 0}deg) rotateY(${webcam.rotateY ?? 0}deg) rotateZ(${webcam.rotateZ ?? 0}deg)`;
+				} else {
+					bubble.style.transform = "none";
+				}
+				bubble.style.transformOrigin = "center center";
+
 				bubble.style.filter = `drop-shadow(0 ${Math.round(scaledSize * 0.06)}px ${Math.round(
 					scaledSize * 0.22,
 				)}px rgba(0, 0, 0, ${webcam.shadow ?? DEFAULT_WEBCAM_SHADOW}))`;

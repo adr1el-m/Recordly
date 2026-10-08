@@ -71,7 +71,7 @@
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"dnd-timeline": "^2.2.0",
-		"electron": "^39.2.7",
+		"electron": "^39.8.8",
 		"electron-builder": "^26.7.0",
 		"electron-icon-builder": "^2.0.1",
 		"electron-rebuild": "^3.2.9",
